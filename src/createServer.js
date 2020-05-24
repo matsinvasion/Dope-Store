@@ -7,14 +7,9 @@ const db = require("./db");
 
 function createServer(){
     return new GraphQLServer({
-        typeDefs:"./schema.graphql",
-        reslovers:{
-            Mutation,
-            Query
-        },
-        resolverValidationOptions:{
-            requireResolversForResolveType:false,
-        },
+        typeDefs: "src/schema.graphql",
+        resolvers:{Query,Mutation},
+        //expose db to every request
         context:req => ({...req,db}),
 
 
