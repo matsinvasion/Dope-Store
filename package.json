@@ -4,8 +4,12 @@
   "description": "backend built on nodejs",
   "main": "index.js",
   "scripts": {
+    "start":"nodemon -e js,graphql -x node src/index.js ",
+    "deubg":"nodemon -e js,graphql -x node --inspect src/index.js",
     "deploy":"prisma deploy --env-file variables.env",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "playground":"graphql playground--dotenv variables.env",
+    "dev":"npm-run-all --parallel debug playground"
   },
   "author": "",
   "license": "ISC",
