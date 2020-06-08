@@ -1,9 +1,7 @@
-endpoint: ${env:PRISMA_ENDPOINT}
+#endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: https://dope-store-prod-138840cbcd.herokuapp.com/dope-stores-prod/prod
 datamodel: datamodel.graphql
-#secret:${enc:PRISMA_SECRET}
-generate:
-  - generator: graphql-schema
-    output: ./generated/prisma.graphql
+secret: ${env:PRISMA_SECRET}
 hooks:
   post-deploy:
     - graphql get-schema -p prisma
